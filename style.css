@@ -109,13 +109,16 @@ margin-bottom: 30px;
 
 
 .himg{
+      
     flex: 1;
     text-align: right;
 }
 
 .himg img{
+ 
     max-width: 100%;
     border-radius: 50%;
+ 
    
 }
 
@@ -206,4 +209,63 @@ margin-top: 50px;
     font-size: 12px;
 
 }
+.Burger{
+    display: none;
+    cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) {
+    .h{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .himg{
+        margin-top: 30px;
+    }
+    .dish{
+        width: calc(50%-20px);
+    }
+
+    .Burger{
+        display: block;
+    }
+
+    nav{
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color:rgb(222, 239, 243) ;
+        padding: 20px;
+    }
+
+    nav ul{
+        flex-direction: column;
+    }
+
+    nav ul li{
+        margin: 10px 0;
+    }
+    nav.active{
+        display: block;
+    }
+
+    .dish .add-to-cart{
+        width: 15px;
+        height: 15px;
+        bottom: 4px;
+        
+    }
+}
+
+.dish:hover{
+    background-color:rgb(140, 219, 200);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.863);
+    font-weight: bold;
+}
+
 
