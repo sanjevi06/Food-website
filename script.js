@@ -6,6 +6,7 @@ const bar =document.getElementById("Burger");
 const navbar =document.getElementById("nav")
 let cart =[];
 
+
 dishes.forEach(dish =>{
     dish.addEventListener("click", () => {
         const newimg =dish.getAttribute("data-img");
@@ -35,3 +36,4 @@ function updatecartcount (){
 cartcount.textContent=cart.length;
 
 }
+
