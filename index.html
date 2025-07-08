@@ -22,17 +22,18 @@
       <nav id="nav">
         <ul>
 
-            <li><a href="#">Home</a></li>
-             <li><a href="#">Menu</a></li>
-              <li><a href="#">Contact</a></li>
-               <li><a href="#">About</a></li>
+            <li><a href="#popular-dishes">Home</a></li>
+             <li><a href="#popular-dishes">Menu</a></li>
+              <li><a href="#footer">Contact</a></li>
+               <li><a href="#footer">About</a></li>
            
         </ul>
       </nav>
 
 <div class="buttons">
     <button class="btn">Sign In</button>
-    <button class="btn-primary">Sign Up</button>
+    <!-- <button class="btn-primary">Sign Up</button> -->
+     <button class="btn" id="logout" onclick="signout()">Log Out</button>
 
 
 <div class="cart"><i class="fa-solid fa-cart-shopping"></i>
@@ -52,7 +53,7 @@
 <div class="ht">
     <h1>Delicious Food, Delivered Fast</h1>
     <p>Craving something tasty? Order from top local spots with ease — and get it delivered fast!</p>
-    <button class="btn-primary">Learn More</button>
+    <button class="btnl" >Learn More</button>
 </div>
 <div class="himg" id="himg">
     <img src="images/food-1.png" alt="img">
@@ -62,13 +63,15 @@
 
 
 <!--below dishes-->
-<section class="popular-dishes">
+<section class="popular-dishes" id="popular-dishes">
     <h2>Popular</h2>
 
     <div class="dishes" >
 
 
-        <div class="dish"></div>
+        <div class="dish">
+            
+        </div>
 
     </div>
 </section>
@@ -85,17 +88,79 @@
     <div class="bottom">
         <div class="total-items-cart">Total <small>$</small><span>0</span></div>
         <div class="close-button">Close</div>
+      
     </div>
 </div>
 
 
 
 </div>
-<script src="script.js"></script>
+
+<!--Alert box-->
+<div class="alertboxreg" id="regsucc">
+    <div class="alertsucc">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Registration Successful</span>
+    </div>
+</div>
+
+<div class="alertbox" id="succ">
+    <div class="alertsucc">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Login Successful</span>
+    </div>
+</div>
+
+<!--Login Page-->
+<div class="auth" id="auth">
+<button class="closelogin"><i class="fa-solid fa-xmark"></i></button>
+    <div class="form-box">
+        <h2>Login</h2>
+        <form action="" id="loginform">
+            <div class="inputbox">
+                <input type="email" id="email">
+                <i class="fa-solid fa-envelope"></i>
+                <div class="error"></div>
+            </div>
+            <div class="inputbox">
+                <input type="password" id="password">
+                <i class="fa-solid fa-lock"></i>
+                  <div class="error"></div>
+            </div>
+            <button class="loginbtn" type="submit">Login</button>
+            <p>Don't have an account?<a href="#" class="reg-link">Register</a></p>
+            
+        </form>
+    </div>
+
+    <!--Reg-->
+
+ <div class="form-box-reg">
+        <h2>Register</h2>
+        <form action="" id="regform">
+            <div class="inputbox">
+                <input type="name" id="username">
+                <i class="fa-solid fa-user"></i>
+                  <div class="error"></div>
+            </div>
+            <div class="inputbox">
+                <input type="email" id="emailreg">
+                <i class="fa-solid fa-envelope"></i>
+                  <div class="error"></div>
+            </div>
+            <div class="inputbox">
+                <input type="password" id="passwordreg">
+                <i class="fa-solid fa-lock"></i>
+                  <div class="error"></div>
+            </div>
+            <button class="regbtn" type="submit" onclick="clickreg()">Register</button>
+            <p>Alredy have an account? <a href="#" class="login-link">Login</a></p>
+        </form>
+    </div>
+</div>
 
 
-
-<footer>
+<footer id="footer">
     <div class="row">
         <div class="col">
             <h1>EATs</h1>
@@ -112,10 +177,10 @@
         <div class="col">
             <h3>Available in:</h3>
             <ul>
-                <li><a href="#">Banglore</a></li>
-                 <li><a href="#">Chennai</a></li>
-                  <li><a href="#">Delhi</a></li>
-                   <li><a href="#">pune</a></li>
+                <li>Banglore</li>
+                 <li>Chennai</li>
+                  <li>Delhi</li>
+                   <li>pune</li>
             </ul>
         </div>
         <div class="col">
@@ -125,9 +190,12 @@
             </ul>
         </div>
        
+       
         </div>
    
 </footer>
+
+<script src="script.js"></script>
 </body>
 
 </html>
