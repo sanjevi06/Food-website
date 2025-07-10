@@ -72,7 +72,7 @@ let items  =[
     },
       {
         id:9,
-        name:"BurgerCombo",
+        name:"Burger",
         Image:"images/food-10.png",
         price:3.00
     },
@@ -139,16 +139,16 @@ let totalcount=0;
         totalcount+=item.price*item.cartcount;
 
 let productli=document.createElement('li')
-productli.innerHTML=`  <img src="${item.Image}">
-              <p>${item.name}</p>
-            <span class="price">$${item.price}</span>
+productli.innerHTML=`  <img src="${item.Image}" id="cartimg">
+              <p id="itemname">${item.name}</p>
+            <span class="price" id="itemname">$${item.price}</span>
             <div class="changeqty">
-                <button onClick="changecount(${key},${item.cartcount - 1})">-</button>
+                <button  onClick="changecount(${key},${item.cartcount - 1})">-</button>
                 <span>${item.cartcount}</span>
                 <button onClick="changecount(${key},${item.cartcount + 1})">+</button>
                 <button class="delete-items" onClick="deleteall(${key})"><i class="fa-solid fa-square-minus"></i></button>
             </div>`
-            cartlist.append(productli)
+            cartlist.append(productli)        
  
     })
     cartcount.style.display="block"
@@ -193,40 +193,14 @@ signin.addEventListener("click", () =>{
     auth.classList.remove("open","slide")
 })
 
-
 // // //alert
 var loginbutton =document.querySelector(".loginbtn") //login button in auth
 var alertbox =document.getElementById("succ") //alert checkbox
-
-
-//to show the alert when the validation is crct
-loginbutton.addEventListener("click", ()=>{
- if(validationLogin()){
-alertbox.classList.add("showit")
-setTimeout(() =>{
-    alertbox.classList.remove("showit")
-},3000)
- }
-})
-
-// //reg not yet done
-
-
-//to show logout button selecting it
+// //reg 
+var regbtn =document.querySelector(".regbtn")
+var alertboxreg=document.querySelector("#regsucc")
+//logoutbutton
 var logoutbtn=document.getElementById("logout")
-
-// //for closing auth after login and change singin to logout
-loginbutton.addEventListener("click",()=>{
-    if(validationLogin()){
-    auth.classList.toggle("open")
-        // logoutbtn.classList.toggle("logoutshow")
-     logoutbtn.style.display=("block")
-        // signin.classList.toggle("logoutshows")
-          signin.style.display=("none")
-        
-}
-
-})
 
 //logout to sign in
 function signout(){
@@ -242,12 +216,26 @@ var regform=document.querySelector("#regform")
 var email=document.querySelector("#email")
 var password=document.querySelector("#password")
 
-loginform.addEventListener("submit",(e)=>{
-   //til validation is crct it will not allow to perform action
-    if(!validationLogin()){
- e.preventDefault()
+// loginform.addEventListener("submit",(e)=>{
+//    //til validation is crct it will not allow to perform action
+//     if(!validationLogin()){
+//  e.preventDefault()
+//     }
+// })
+loginform.addEventListener("submit", (e) => {
+    e.preventDefault(); // Always stop form from refreshing
+
+    if (validationLogin()) {
+        auth.classList.remove("open");
+        alertbox.classList.add("showit");
+        setTimeout(() => {
+            alertbox.classList.remove("showit");
+        }, 2000);
+
+        logoutbtn.style.display = "block";
+        signin.style.display = "none";
     }
-})
+});
 
 function validationLogin(){
     emailvalue = email.value;
@@ -280,12 +268,23 @@ var username=document.querySelector("#username")
 var emailreg =document.querySelector("#emailreg")
 var passwordreg =document.querySelector("#passwordreg")
 
-regform.addEventListener("submit",(e)=>{
-   //til validation is crct it will not allow to perform action
-    if(!validationReg()){
- e.preventDefault()
+// regform.addEventListener("submit",(e)=>{
+//    //til validation is crct it will not allow to perform action
+//     if(!validationReg()){
+//  e.preventDefault()
+//     }
+// })
+regform.addEventListener("submit", (e) => {
+    e.preventDefault(); // Prevent page refresh
+
+    if (validationReg()) {
+        auth.classList.remove("open", "slide");
+        alertboxreg.classList.add("showiti");
+        setTimeout(() => {
+            alertboxreg.classList.remove("showiti");
+        }, 2000);
     }
-})
+});
 
 function validationReg(){
   usernameval=username.value.trim();
@@ -337,21 +336,12 @@ function setsuccess(element){
     inputgroup.classList.remove("error")
 
 }
-
-var regbtn =document.querySelector(".regbtn")
-var alertboxreg=document.querySelector("#regsucc")
-
-
-//when clicking register button in regform
-function clickreg(){
-     if(validationReg()){
-
-auth.classList.remove("open","slide")
- alertboxreg.classList.add("showiti")
- setTimeout(() =>{
-    alertboxreg.classList.remove("showiti")
-},3000)
- 
-     }
-    
+//Confirm button
+var paymentpage =document.querySelector(".paymentpage")
+function closepayment(){
+    paymentpage.style.display=("none");
 }
+function purchase(){
+    paymentpage.style.display=("flex") 
+}
+
