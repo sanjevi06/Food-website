@@ -113,8 +113,7 @@ let showitem = items.map((item,key)=>{
       
 }).join("")
 
-productbox.innerHTML=showitem
-
+productbox.innerHTML=showitem;
 
 let storeproduct = [];
 
@@ -319,7 +318,7 @@ return crct
 
 function seterror(element,message){
     const inputgroup = element.parentElement;
-    const errorelement = inputgroup.querySelector(".error")
+    const errorelement = inputgroup.querySelector(".error") 
     errorelement.innerText=message;
     inputgroup.classList.add("error")
     inputgroup.classList.remove("success")

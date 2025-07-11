@@ -286,8 +286,8 @@ margin-top: 50px;
     width: 25%;
       transition: right 0.4s ;
     z-index: 50;
-
-    
+display: flex;
+flex-direction: column;   
 }
 
 .cartitems.active {
@@ -297,18 +297,18 @@ margin-top: 50px;
 .cartitems h2{
     font-family: 'lato', sans-serif;
     text-align: center;
-    margin: 5% ;
+    margin: 0 ;
     font-size: 40px;
     color: rgb(0, 0, 0);
 }
 
 .cartitems .bottom{ 
 display: flex;
-height: 80px;
-line-height: 80px;
+height: 30px;
+line-height: 30px;
 text-align: center;
 position: absolute;
-bottom: 45px;
+bottom: 30px;
 width: 100%;
 background-color:black;
 color: white;
@@ -319,8 +319,8 @@ color: white;
     /* display: flex; */
     text-align: center;
     width: 100%;
-    height: 45px;
-   line-height: 45px;
+    height: 30px;
+   line-height: 30px;
    font-size: 18px;
    cursor: pointer;
    background: rgb(135, 147, 140);
@@ -335,6 +335,9 @@ color: white;
 
 .cartitems ul{
     list-style: none;
+   overflow-y: auto;
+   height: calc(100%-160px);
+   padding: 0 10px;
 }
 
 .cartitems ul li{
@@ -346,6 +349,7 @@ color: white;
    margin: 5px;
    padding: 2em;
    border-bottom: 1px solid black;
+   
 }
 
 .cartitems ul li img{
